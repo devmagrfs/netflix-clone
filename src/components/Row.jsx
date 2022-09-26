@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from '../api/axios';
+import MovieModal from './MovieModal';
 
 
 const Row = ({ title, id, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [movieSelected, setMovieSelected] = useState({});
+
+  const handleClick = (movie) => {
+    setModalOpen(true);
+    setMovieSelected(movie);
+  };
 
   useEffect(() => {
     fetchMovieData();
@@ -28,6 +36,7 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
           {movies.map((movie) => (
             <RowPoster
               key={movie.id}
+              onCliuck={() => handleClick(movie)}
               isLargeRow={`${isLargeRow} ? 'isLargeRow' : ''`}
               src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
               loading='lazy'
@@ -41,6 +50,10 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
           </Arrow>
         </SliderRightArrow>
       </Slider>
+
+      {
+        modalOpen && <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+      }
     </RowContainer>
   )
 }
