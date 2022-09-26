@@ -36,7 +36,7 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
           {movies.map((movie) => (
             <RowPoster
               key={movie.id}
-              onCliuck={() => handleClick(movie)}
+              onClick={() => handleClick(movie)}
               isLargeRow={`${isLargeRow} ? 'isLargeRow' : ''`}
               src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
               loading='lazy'
