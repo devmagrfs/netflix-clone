@@ -20,7 +20,7 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
       <RowTitle>{title}</RowTitle>
       <Slider>
         <SliderLeftArrow>
-          <Arrow>
+          <Arrow >
             {'<'}
           </Arrow>
         </SliderLeftArrow>
