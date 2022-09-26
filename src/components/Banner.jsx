@@ -36,12 +36,12 @@ const Banner = () => {
           {movie.title || movie.name || movie.original_name}
         </BannerTitle>
         <BannerButtons>
-          <BannerButton className="play">
+          <BannerPlayButton>
             Play
-          </BannerButton>
-          <BannerButton className="info">
+          </BannerPlayButton>
+          <BannerInfoButton>
             More Information
-          </BannerButton>
+          </BannerInfoButton>
         </BannerButtons>
         <BannerDescription>{truncate(movie.overview, 100)}</BannerDescription>
       </BannerContents>
@@ -98,26 +98,6 @@ const BannerButton = styled.button`
   padding: 0.4rem 1.8rem 0.4rem 1rem;
   margin-right: 1rem;
 
-  .play {
-    background-color: white;
-    color: black;
-  }
-
-  .info {
-    background-color: rgba(109, 109, 110, 0.7);
-    color: white;
-
-    &:hover {
-      background-color: rgb(74, 74, 74);
-      color: white;
-    }
-    
-    @media (max-width: 768px) {
-      text-align: start;
-      padding-right: 1.2rem;
-    }
-  }
-
   &:hover {
     color: #000;
     background-color: rgba(170, 170, 170, 0.9);
@@ -127,6 +107,26 @@ const BannerButton = styled.button`
   @media (max-width: 768px) {
     font-size: 0.8rem !important;
     border-radius: 4px !important;
+  }
+`;
+
+const BannerPlayButton = styled(BannerButton)`
+  background-color: white;
+  color: black;
+`;
+
+const BannerInfoButton = styled(BannerButton)`
+  background-color: rgba(109, 109, 110, 0.7);
+  color: white;
+
+  &:hover {
+    background-color: rgb(74, 74, 74);
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    text-align: start;
+    padding-right: 1.2rem;
   }
 `;
 
