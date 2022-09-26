@@ -37,7 +37,7 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
             <RowPoster
               key={movie.id}
               onClick={() => handleClick(movie)}
-              isLargeRow={`${isLargeRow} ? 'isLargeRow' : ''`}
+              isLargeRow={`${isLargeRow ? 'isLargeRow' : ''}`}
               src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
               loading='lazy'
               alt={movie.name}
@@ -152,7 +152,7 @@ const RowPoster = styled.img`
   border-radius: 4px;
 
   &:hover {
-    transform: ${({ isLargeRow }) => isLargeRow ? '1.1' : '1.08'};
+    transform: ${({ isLargeRow }) => isLargeRow ? 'scale(1.1)' : 'scale(1.08)'};
     opacity: ${({ isLargeRow }) => isLargeRow ? '1' : ''};
   }
 
