@@ -53,7 +53,7 @@ const NavigationContainer = styled.nav`
   top: 0;
   width: 100%;
   height: 30px;
-  z-index: 1;
+  z-index: 2;
   padding: 20px;
   display: flex;
   justify-content: space-between;

@@ -10,6 +10,7 @@ import 'swiper/css/scrollbar';
 
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
+import './Row.css';
 
 
 const Row = ({ title, id, fetchUrl, isLargeRow }) => {
@@ -37,7 +38,6 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
-        pagination={{ clickable: true }}
         loop={true}
         breakpoints={{
           1378: {
@@ -81,76 +81,14 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
 }
 
 const RowContainer = styled.section`
-  margin-left: 20px;
+  padding: 0 20px 0 20px;
   color: white;
+  background-color: black;
 `;
 
 const RowTitle = styled.h2`
-  padding-left: 20px;
-`;
-
-const Slider = styled.div`
-  position: relative;
-
-  &:hover {
-    transition: 400ms all ease-in-out;
-    visibility: visible;
-  }
-`;
-
-const SliderLeftArrow = styled.div`
-  background-clip: content-box;
-  padding: 20px 0;
-  box-sizing: border-box;
-  transition: 400ms all ease-in-out;
-  cursor: pointer;
-  width: 80px;
-  z-index: 1000;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-
-  &:hover {
-    background: rgba(20, 20, 20, 0.5);
-    transition: 400ms all ease-in-out;
-  }
-`;
-
-const SliderRightArrow = styled.div`
-  padding: 20px 0;
-  background-clip: content-box;
-  box-sizing: border-box;
-  transition: 400ms all ease-in-out;
-  cursor: pointer;
-  width: 80px;
-  z-index: 1000;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-
-  &:hover {
-    background: rgba(20, 20, 20, 0.5);
-    transition: 400ms all ease-in-out;
-  }
-`;
-
-const Arrow = styled.span`
-  transition: 400ms all ease-in-out;
-
-  &:hover {
-    transition: 400ms all ease-in-out;
-    transform: scale(1.5);
-  }
+  padding: 20px;
+  margin: 0;
 `;
 
 const RowPosters = styled.div`
