@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
 
@@ -26,31 +34,45 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
   return (
     <RowContainer>
       <RowTitle>{title}</RowTitle>
-      <Slider>
-        <SliderLeftArrow>
-          <Arrow >
-            {'<'}
-          </Arrow>
-        </SliderLeftArrow>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        navigation
+        pagination={{ clickable: true }}
+        loop={true}
+        breakpoints={{
+          1378: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+          },
+          998: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+          625: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+          0: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }}
+      >
         <RowPosters id={id}>
           {movies.map((movie) => (
-            <RowPoster
-              key={movie.id}
-              onClick={() => handleClick(movie)}
-              isLargeRow={`${isLargeRow ? 'isLargeRow' : ''}`}
-              src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-              loading='lazy'
-              alt={movie.name}
-            />
+            <SwiperSlide>
+              <RowPoster
+                key={movie.id}
+                onClick={() => handleClick(movie)}
+                isLargeRow={`${isLargeRow ? 'isLargeRow' : ''}`}
+                src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                loading='lazy'
+                alt={movie.name}
+              />
+            </SwiperSlide>
           ))}
         </RowPosters>
-        <SliderRightArrow>
-          <Arrow>
-            {'>'}
-          </Arrow>
-        </SliderRightArrow>
-      </Slider>
-
+      </Swiper>
       {
         modalOpen && <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
       }
