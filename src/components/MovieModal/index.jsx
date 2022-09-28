@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+import useOnclickOutside from '../../hooks/useOnclickOutside';
 
 const MovieModal = ({
   backdrop_path,
@@ -12,11 +13,14 @@ const MovieModal = ({
   setModalOpen
 }) => {
   const ref = useRef();
+  useOnclickOutside(ref, () => {
+    setModalOpen(false);
+  });
 
   return (
     <Presentation role='presentation'>
       <WrapperModal>
-        <Modal className='modal' ref={ref}>
+        <Modal ref={ref}>
           <ModalCloseButton onClick={() => setModalOpen(false)}>
             X
           </ModalCloseButton>
@@ -39,7 +43,7 @@ const MovieModal = ({
           </ModalContent>
         </Modal>
       </WrapperModal>
-    </Presentation>
+    </Presentation >
   )
 }
 
