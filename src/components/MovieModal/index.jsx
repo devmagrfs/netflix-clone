@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 
 const MovieModal = ({
@@ -11,10 +11,12 @@ const MovieModal = ({
   vote_average,
   setModalOpen
 }) => {
+  const ref = useRef();
+
   return (
     <Presentation role='presentation'>
       <WrapperModal>
-        <Modal className='modal'>
+        <Modal className='modal' ref={ref}>
           <ModalCloseButton onClick={() => setModalOpen(false)}>
             X
           </ModalCloseButton>
