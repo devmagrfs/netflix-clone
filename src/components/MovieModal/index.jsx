@@ -12,29 +12,28 @@ const MovieModal = ({
   setModalOpen
 }) => {
   return (
-    <Presentation className='presentation' role='presentation'>
-      <WrapperModal className='wrapper-modal'>
+    <Presentation role='presentation'>
+      <WrapperModal>
         <Modal className='modal'>
-          <ModalCloseButton onClick={() => setModalOpen(false)} className='modal-close'>
+          <ModalCloseButton onClick={() => setModalOpen(false)}>
             X
           </ModalCloseButton>
 
           <ModalPosterImage
-            className='modal__poster-img'
             src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
             alt='modal__poster-img'
           />
 
-          <ModalContent className='modal__content'>
-            <ModalDetails className='modal__details'>
-              <ModalUserPercentage className='modal__user_percentage'>
+          <ModalContent>
+            <ModalDetails>
+              <ModalUserPercentage>
                 {release_date ? release_date : first_air_date}
               </ModalUserPercentage>
             </ModalDetails>
 
-            <ModalTitle className='modal__title'>{title ? title : name}</ModalTitle>
+            <ModalTitle>{title ? title : name}</ModalTitle>
             <p className='modal__overview'> 평점 : {vote_average}</p>
-            <ModalOverview className='modal__overview'>{overview}</ModalOverview>
+            <ModalOverview>{overview}</ModalOverview>
           </ModalContent>
         </Modal>
       </WrapperModal>

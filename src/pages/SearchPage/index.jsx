@@ -36,7 +36,7 @@ const SearchPage = () => {
 
   const renderSearchResults = () => {
     return searchResults.length > 0 ? (
-      <ResultSearchContainer className='search-container'>
+      <ResultSearchContainer>
         {searchResults.map((movie) => {
           if (movie.backdrop_path !== null && movie.media_type !== 'person') {
             const movieImageUrl = 'https://image.tmdb.org/t/p/w500' + movie.backdrop_path;
