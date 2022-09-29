@@ -60,7 +60,7 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
       >
         <RowPosters id={id}>
           {movies.map((movie) => (
-            <SwiperSlide>
+            <SwiperSlide key={movie.id}>
               <RowPoster
                 key={movie.id}
                 onClick={() => handleClick(movie)}
