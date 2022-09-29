@@ -10,7 +10,6 @@ import 'swiper/css/scrollbar';
 
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
-import './Row.css';
 
 
 const Row = ({ title, id, fetchUrl, isLargeRow }) => {
@@ -35,7 +34,7 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
   return (
     <RowContainer>
       <RowTitle>{title}</RowTitle>
-      <Swiper
+      <StyledSwiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
         loop={true}
@@ -72,13 +71,26 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
             </SwiperSlide>
           ))}
         </RowPosters>
-      </Swiper>
+      </StyledSwiper>
       {
         modalOpen && <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
       }
     </RowContainer>
   )
 }
+
+const StyledSwiper = styled(Swiper)`
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+`;
 
 const RowContainer = styled.section`
   padding: 0 20px 0 20px;
