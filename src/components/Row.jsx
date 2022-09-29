@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 import axios from '../api/axios';
 import MovieModal from './MovieModal';
@@ -22,14 +20,14 @@ const Row = ({ title, id, fetchUrl, isLargeRow }) => {
     setMovieSelected(movie);
   };
 
-  useEffect(() => {
-    fetchMovieData();
-  }, []);
-
   const fetchMovieData = async () => {
     const request = await axios.get(fetchUrl);
     setMovies(request.data.results);
   };
+
+  useEffect(() => {
+    fetchMovieData();
+  }, []);
 
   return (
     <RowContainer>
@@ -139,4 +137,4 @@ const RowPoster = styled.img`
 
 
 
-export default Row
+export default Row;
