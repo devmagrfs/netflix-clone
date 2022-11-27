@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# 유튜브 클론코딩 미니 프로젝트
+## [배포 사이트](https://deft-souffle-bf11f5.netlify.app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+## 소개
+- 유튜브 클론코딩 미니 프로젝트
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+## 기술 스택
+- React.js with TypeScript (Create React App with yarn)
+- [Style] TailwindCSS
+- [Router] react-router-dom
+- [Icon] react-icons
+- [Date] timeago.js
+- [Deploy] Netlify
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 구현 사항
+### 라우팅
+- [x] Youtube 아이콘 클릭 시, 메인 페이지로 이동
+- [x] 검색 시, 키워드를 이용. `/videos/keyword` 로 이동
+- [x] 비디오 카드 클릭 시, 해당 비디오 디테일 페이지로 이동
+- [x] 관련 영상 카드 클릭 시, 해당 비디오 디테일 페이지로 이동
 
-### `yarn test`
+### 헤더
+- [x] 아이콘 클릭 시, 메인 페이지로 이동
+- [x] 검색 기능 구현
+  - [x] Youtube Data API를 이용해서 검색 기능 구현
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 메인 페이지 & 검색 결과 페이지
+- [x] 유튜브 데이터 받아와서 페이지에 보여주기
+- [x] Skeleton UI 구현하기
+  - [x] 데이터 받아오는 도중
+  - [x] 이미지 로딩중
+- [x] 검색 결과물을 데이터 받아와서 검색 결과 페이지에 보여주기 (메인 페이지와 동일한 레이아웃)
 
-### `yarn build`
+### 비디오 카드 디테일 페이지
+- [x] 유튜브 비디오 데이터 받아와서 보여주기
+- [x] 해당 비디오와 관련된 연관 비디오 리스트 보여주기
+- [x] Skeleton UI 구현하기
+  - [x] 데이터 받아오는 도중
+  - [x] 비디오 로딩중
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 반응형
+- [x] 특정 화면 크기에 따라서 반응형 구현하기
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 스크롤
+- [x] 페이지 이동 시, 최상단으로 스크롤 이동
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
